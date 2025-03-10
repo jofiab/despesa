@@ -19,7 +19,7 @@ export default function ExpenseTracker() {
 
   const fetchSummary = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/get_summary/");
+      const response = await axios.get("https://despesa.onrender.com/get_summary/");
       setSummary(response.data);
     } catch (error) {
       console.error("Erro ao buscar resumo", error);
@@ -28,7 +28,7 @@ export default function ExpenseTracker() {
 
   const addExpense = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/add_expense/", {
+      await axios.post("https://despesa.onrender.com/add_expense/", {
         date,
         category,
         description,
