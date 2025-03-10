@@ -48,7 +48,7 @@ class ExpenseTracker:
 
 tracker = ExpenseTracker(FILE_PATH)
 
-@app.post("/add_expense/")
+@app.post("https://despesa.onrender.com/add_expense/")
 def add_expense(date: str, category: str, description: str, amount: float, payment_method: str, classification: str):
     try:
         tracker.add_expense(date, category, description, amount, payment_method, classification)
@@ -57,7 +57,7 @@ def add_expense(date: str, category: str, description: str, amount: float, payme
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/get_summary/")
+@app.get("https://despesa.onrender.com/get_summary/")
 def get_summary():
     return tracker.monthly_summary.to_dict(orient="records")
 
